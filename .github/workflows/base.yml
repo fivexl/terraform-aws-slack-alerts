@@ -1,0 +1,15 @@
+name: 'base'
+
+on:
+  push:
+    tags: [ v* ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  terraform-job:
+    uses: fivexl/github-reusable-workflows/.github/workflows/terraform-job.yml@main
+    with:
+      terraform-version: "1.4.4"
+      aws-default-region: "eu-central-1"

@@ -14,7 +14,6 @@
 # In almost all modules only treshold/limit amount and subscriber_sns_topic_arns or 
 # subscriber_email_addresses are required, other parameters are optional.
 
-
 locals {
   slack = {
     workspace_id = "xxxxxxxxx"
@@ -26,6 +25,7 @@ locals {
   budget_subscriber_email_addresses = [
     "mail@gmail.com",
   ]
+  prod_sns_topic_arn = [aws_sns_topic.chatbot.arn]
 }
 
 # Optional Automatic creation Chatbot IAM role
@@ -48,7 +48,7 @@ module "chatbot_slack_workspace" {
   channels_config = {
     test = {
       slack_channel_id = local.slack.channel["dev-alerts"]
-      sns_topic_arns   = [aws_sns_topic.chatbot.arn]
+      sns_topic_arns   = local.prod_sns_topic_arn
     }
   }
 
@@ -61,7 +61,7 @@ module "reservations_alerts" {
 
   # Threshold, if utilization is less than 90% - alert will be triggered
   threshold                 = "90"
-  subscriber_sns_topic_arns = [aws_sns_topic.chatbot.arn]
+  subscriber_sns_topic_arns = local.prod_sns_topic_arn
 }
 
 # Savings plans utilization alert
@@ -70,7 +70,7 @@ module "savings_plans_alerts" {
 
   # Threshold, if utilization is less than 40% - alert will be triggered
   threshold                 = "40"
-  subscriber_sns_topic_arns = [aws_sns_topic.chatbot.arn]
+  subscriber_sns_topic_arns = local.prod_sns_topic_arn
 }
 
 # Budget alert. Required to specify only limit amount and one of subscriber_sns_topic_arns or subscriber_email_addresses
@@ -80,7 +80,7 @@ module "budget_alerts" {
 
   limit_amount = "10000"
 
-  subscriber_sns_topic_arns  = [aws_sns_topic.chatbot.arn]
+  subscriber_sns_topic_arns  = local.prod_sns_topic_arn
   subscriber_email_addresses = local.budget_subscriber_email_addresses
 }
 
@@ -93,7 +93,7 @@ module "eventbridge_alerts" {
   # create_aws_health_rule will create eventbridge rule and send all AWS Health events to Slack
   create_aws_health_rule = true
 
-  sns_topic_arn = aws_sns_topic.chatbot.arn
+  sns_topic_arn = local.prod_sns_topic_arn
 }
 
 
@@ -109,7 +109,7 @@ module "cost_anomaly_detection" {
 
   # TODO: % change, specific amount change
 
-  subscriber_sns_topic_arns  = [aws_sns_topic.chatbot.arn]
+  subscriber_sns_topic_arns  = local.prod_sns_topic_arn
   subscriber_email_addresses = ["xxxxxx"]
 }
 
@@ -168,4 +168,3 @@ resource "aws_sns_topic_policy" "chatbot_topic" {
     ]
   })
 }
-

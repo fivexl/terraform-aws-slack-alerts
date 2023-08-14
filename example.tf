@@ -18,8 +18,6 @@ locals {
 # Optional Automatic creation Chatbot IAM role
 module "chatbot_role" {
   source = "./modules/iam"
-
-  tags = module.tags.result
 }
 
 
@@ -38,8 +36,6 @@ module "chatbot_slack_workspace" {
       sns_topic_arns   = local.prod_sns_topic_arn
     }
   }
-
-  tags = module.tags.result
 }
 
 # Reservations utilization alert

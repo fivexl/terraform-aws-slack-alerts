@@ -1,18 +1,15 @@
-# In almost all modules only treshold/limit amount and subscriber_sns_topic_arns or 
-# subscriber_email_addresses are required, other parameters are optional.
-
 locals {
   slack = {
-    workspace_id = "xxxxxxxxx"
+    workspace_id = "ASDFGHJKL"
     channel = {
-      "dev-alerts"  = "xxxxxxxxxxx"
-      "prod-alerts" = "xxxxxxxxxxx"
+      "prod-alerts" = "PPOIUYTREWQ"
     }
   }
+  # Both SNS topic ARN and email addresses can be used as subscribers, but at least one of them is required
   budget_subscriber_email_addresses = [
-    "mail@gmail.com",
+    "prod_alerts@gmail.com",
   ]
-  prod_sns_topic_arn = [aws_sns_topic.chatbot.arn]
+  prod_sns_topic_arn = [aws_sns_topic.prod_chatbot.arn]
 }
 
 # Optional Automatic creation Chatbot IAM role
@@ -26,13 +23,14 @@ module "chatbot_slack_workspace" {
   source = "./modules/slack_workspace"
 
   workspace_id = local.slack.workspace_id
-  # Here can be placed default_iam_role_arn for Chatbot instead automatic creation
+
+  # Here can be placed default_iam_role_arn for Chatbot instead of automatic creation
   default_iam_role_arn = module.chatbot_role.iam_role_arn
 
   # Mapping of topics to channels
   channels_config = {
-    test = {
-      slack_channel_id = local.slack.channel["dev-alerts"]
+    prod = {
+      slack_channel_id = local.slack.channel["prod-alerts"]
       sns_topic_arns   = local.prod_sns_topic_arn
     }
   }
@@ -56,7 +54,7 @@ module "savings_plans_alerts" {
   subscriber_sns_topic_arns = local.prod_sns_topic_arn
 }
 
-# Budget alert. Required to specify only limit amount and one of subscriber_sns_topic_arns or subscriber_email_addresses
+
 # It will automatically create budget, with notifications for 100%, 150% and 200% of limit amount for forecasted and actual costs
 module "budget_alerts" {
   source = "./modules/budget_alerts"
@@ -97,12 +95,13 @@ module "cost_anomaly_detection" {
 }
 
 # SNS topic for Chatbot
-resource "aws_sns_topic" "chatbot" {
+resource "aws_sns_topic" "prod_chatbot" {
   name = "test_chatbot_topic"
 }
+
 # SNS topic policy for Chatbot
-resource "aws_sns_topic_policy" "chatbot_topic" {
-  arn = aws_sns_topic.chatbot.arn
+resource "aws_sns_topic_policy" "prod_chatbot" {
+  arn = aws_sns_topic.prod_chatbot.arn
   policy = jsonencode({
     Version = "2012-10-17"
     Id      = "chatbot_topic_policy"
@@ -112,14 +111,14 @@ resource "aws_sns_topic_policy" "chatbot_topic" {
         Effect    = "Allow"
         Principal = "*"
         Action    = "sns:Publish"
-        Resource  = aws_sns_topic.chatbot.arn
+        Resource  = aws_sns_topic.prod_chatbot.arn
       },
       {
         Sid       = "AllowSNSSubscriptions"
         Effect    = "Allow"
         Principal = "*"
         Action    = "sns:Subscribe"
-        Resource  = aws_sns_topic.chatbot.arn
+        Resource  = aws_sns_topic.prod_chatbot.arn
       },
       {
         Sid    = "AllowChatbotSubscriptions"
@@ -128,7 +127,7 @@ resource "aws_sns_topic_policy" "chatbot_topic" {
           "Service" : "chatbot.amazonaws.com"
         },
         Action   = "sns:Subscribe"
-        Resource = aws_sns_topic.chatbot.arn
+        Resource = aws_sns_topic.prod_chatbot.arn
       },
       {
         Sid    = "AllowBudgetsPublish",
@@ -137,7 +136,7 @@ resource "aws_sns_topic_policy" "chatbot_topic" {
           Service = "budgets.amazonaws.com"
         },
         Action   = "SNS:Publish",
-        Resource = aws_sns_topic.chatbot.arn
+        Resource = aws_sns_topic.prod_chatbot.arn
       },
       {
         Sid    = "AllowEventsPublish",
@@ -146,7 +145,7 @@ resource "aws_sns_topic_policy" "chatbot_topic" {
           Service = "events.amazonaws.com"
         },
         Action   = "SNS:Publish",
-        Resource = aws_sns_topic.chatbot.arn
+        Resource = aws_sns_topic.prod_chatbot.arn
       }
     ]
   })

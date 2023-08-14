@@ -1,0 +1,1 @@
+# Complete example of two workspace configurations

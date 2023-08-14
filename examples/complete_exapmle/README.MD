@@ -1,0 +1,1 @@
+# Complete example of a terraform-aws-slack-alerts configuration

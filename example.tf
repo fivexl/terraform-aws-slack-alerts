@@ -80,7 +80,7 @@ module "eventbridge_alerts" {
   # create_aws_health_rule will create eventbridge rule and send all AWS Health events to Slack
   create_aws_health_rule = true
 
-  sns_topic_arn = local.prod_sns_topic_arn
+  sns_topic_arn = local.prod_sns_topic_arn[0]
 }
 
 

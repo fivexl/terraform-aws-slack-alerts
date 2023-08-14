@@ -19,7 +19,7 @@ locals {
 }
 
 resource "aws_budgets_budget" "this" {
-  count             = var.create ? 1 : 0
+  count = var.create ? 1 : 0
 
   name              = var.name
   budget_type       = "COST"

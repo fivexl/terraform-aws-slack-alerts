@@ -41,7 +41,7 @@ variable "threshold" {
 }
 
 variable "services" {
-  type       = list(string)
+  type = list(string)
   default = [
     "Amazon Elasticsearch Service",
     "Amazon Relational Database Service",
@@ -49,6 +49,6 @@ variable "services" {
     "Amazon Elastic Compute Cloud - Compute",
     "Amazon ElastiCache",
     "Amazon OpenSearch Service",
-    ]
+  ]
   description = "(Optional) List of services to send alerts for. Defaults to all services."
 }

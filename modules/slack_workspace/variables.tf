@@ -1,27 +1,27 @@
 variable "tags" {
-    description = "(Optional) A mapping of tags to assign to all resources."
-    type        = map(string)
-    default     = {}
+  description = "(Optional) A mapping of tags to assign to all resources."
+  type        = map(string)
+  default     = {}
 }
 
 variable "workspace_id" {
-    description = "(Required) The id of the Slack workspace"
-    type        = string
+  description = "(Required) The id of the Slack workspace"
+  type        = string
 }
 
 variable "channels_config" {
-    type = map(
-        object({
-            configuration_name = optional(string)
-            iam_role_arn       = optional(string)
-            slack_channel_id   = string
-            sns_topic_arns     = list(string)
-            guardrail_policies = optional(list(string))
-            logging_level      = optional(string)
-            user_role_required = optional(bool)
-        })
-    )
-    description = <<EOT
+  type = map(
+    object({
+      configuration_name = optional(string)
+      iam_role_arn       = optional(string)
+      slack_channel_id   = string
+      sns_topic_arns     = list(string)
+      guardrail_policies = optional(list(string))
+      logging_level      = optional(string)
+      user_role_required = optional(bool)
+    })
+  )
+  description = <<EOT
     (Required) The list of Slack channel configurations. Each configuration block supports fields documented below.
 
     configuration_name - (Required) The name of the configuration
@@ -35,31 +35,31 @@ variable "channels_config" {
 }
 
 variable "default_sns_topic_arns" {
-    type = list(string)
-    description = "Default SNS topic ARNs to apply to all channels"
-    default = []
+  type        = list(string)
+  description = "Default SNS topic ARNs to apply to all channels"
+  default     = []
 }
 
 variable "default_iam_role_arn" {
-    type = string
-    description = "Default IAM role to apply to all channels"
-    default = ""
+  type        = string
+  description = "Default IAM role to apply to all channels"
+  default     = ""
 }
 
 variable "default_guardrail_policies" {
-    type = list(string)
-    description = "Default guardrail policies to apply to all channels"
-    default = ["arn:aws:iam::aws:policy/ReadOnlyAccess"]
+  type        = list(string)
+  description = "Default guardrail policies to apply to all channels"
+  default     = ["arn:aws:iam::aws:policy/ReadOnlyAccess"]
 }
 
 variable "default_logging_level" {
-    type = string
-    description = "Default logging level to apply to all channels"
-    default = "NONE"
+  type        = string
+  description = "Default logging level to apply to all channels"
+  default     = "NONE"
 }
 
 variable "default_user_role_required" {
-    type = bool
-    description = "Default user role required to apply to all channels"
-    default = false
+  type        = bool
+  description = "Default user role required to apply to all channels"
+  default     = false
 }

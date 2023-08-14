@@ -1,5 +1,5 @@
 resource "aws_budgets_budget" "reservations_utilization" {
-  for_each             = var.create ? toset(var.services) : toset([])
+  for_each = var.create ? toset(var.services) : toset([])
 
   name              = "${var.name} - ${each.value}"
   budget_type       = "RI_UTILIZATION"

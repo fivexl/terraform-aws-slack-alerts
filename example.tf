@@ -1,16 +1,3 @@
-# Now module has next alerts:
-# - Reservations utilization alert, if utilization is less than X% - alert will be triggered
-# - Savings plans utilization alert, if utilization is less than X% - alert will be triggered
-# - Budget alert, if forecasted or actual costs are more than X% of limit amount - alert will be triggered
-#   * It will automatically create budget, with notifications for 100%, 150% and 200% of limit amount for forecasted and actual costs
-# - EventBridge alerts:
-#   * GuardDuty findings
-#   * AWS Health events
-# - Cost Anomaly Detection alert
-
-# In future can be added:
-# - Savings plans / Reservations expiration alert
-
 # In almost all modules only treshold/limit amount and subscriber_sns_topic_arns or 
 # subscriber_email_addresses are required, other parameters are optional.
 

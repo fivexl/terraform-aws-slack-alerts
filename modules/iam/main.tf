@@ -32,7 +32,7 @@ module "chatbot_role" {
 
   create_role = var.create_role
 
-  role_path = "/service-role/"
+  role_path        = "/service-role/"
   role_name_prefix = "AWSChatbot"
   role_description = "IAM role for AWS Chatbot"
   custom_role_policy_arns = [
@@ -40,16 +40,16 @@ module "chatbot_role" {
   ]
   custom_role_trust_policy = jsonencode(
     {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Effect": "Allow",
-                "Principal": {
-                    "Service": "chatbot.amazonaws.com"
-                },
-                "Action": "sts:AssumeRole"
-            }
-        ]
+      "Version" : "2012-10-17",
+      "Statement" : [
+        {
+          "Effect" : "Allow",
+          "Principal" : {
+            "Service" : "chatbot.amazonaws.com"
+          },
+          "Action" : "sts:AssumeRole"
+        }
+      ]
     }
   )
 

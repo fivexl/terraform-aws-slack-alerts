@@ -1,5 +1,16 @@
+[![FivexL](https://releases.fivexl.io/fivexlbannergit.jpg)](https://fivexl.io/)
+
 # AWS Alerts to Slack Terraform Module
 
+- [AWS Alerts to Slack Terraform Module](#aws-alerts-to-slack-terraform-module)
+  - [Overview](#overview)
+  - [Alerting Flow:](#alerting-flow)
+  - [Features](#features)
+  - [Implemented Alerts](#implemented-alerts)
+  - [Configuration Guide](#configuration-guide)
+    - [Setting Up AWS Chatbot in Slack](#setting-up-aws-chatbot-in-slack)
+    - [Configuring Slack Channel to SNS Topic](#configuring-slack-channel-to-sns-topic)
+- [Conclusion](#conclusion)
 ## Overview
 
 The `aws-alerts-to-slack` Terraform module offers a seamless method to monitor critical AWS alerts and relay them directly to your Slack workspace. By encapsulating the complexities of AWS services and configurations, this module delivers a straightforward deployment process, allowing quick integration of comprehensive monitoring and alerting into your infrastructure.
@@ -107,33 +118,3 @@ For additional usage examples, consult the /examples directory.
 
 # Conclusion
 Stay proactive and enhance your alerting system with the aws-alerts-to-slack Terraform module. By channeling AWS alerts directly into Slack, your team remains informed and ready to act, ensuring the resilience and observability of your AWS infrastructure.
-
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Requirements
-
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.64 |
-| <a name="requirement_awscc"></a> [awscc](#requirement\_awscc) | 0.58.0 |
-
-## Providers
-
-No providers.
-
-## Modules
-
-No modules.
-
-## Resources
-
-No resources.
-
-## Inputs
-
-No inputs.
-
-## Outputs
-
-No outputs.
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

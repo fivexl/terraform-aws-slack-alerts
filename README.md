@@ -119,28 +119,15 @@ Stay proactive and enhance your alerting system with the aws-alerts-to-slack Ter
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.64 |
+No providers.
 
 ## Modules
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_budget_alerts"></a> [budget\_alerts](#module\_budget\_alerts) | ./modules/budget_alerts | n/a |
-| <a name="module_chatbot_role"></a> [chatbot\_role](#module\_chatbot\_role) | ./modules/iam | n/a |
-| <a name="module_chatbot_slack_workspace"></a> [chatbot\_slack\_workspace](#module\_chatbot\_slack\_workspace) | ./modules/slack_workspace | n/a |
-| <a name="module_cost_anomaly_detection"></a> [cost\_anomaly\_detection](#module\_cost\_anomaly\_detection) | ./modules/cost_anomaly_detection | n/a |
-| <a name="module_eventbridge_alerts"></a> [eventbridge\_alerts](#module\_eventbridge\_alerts) | ./modules/eventbridge | n/a |
-| <a name="module_reservations_alerts"></a> [reservations\_alerts](#module\_reservations\_alerts) | ./modules/reservations | n/a |
-| <a name="module_savings_plans_alerts"></a> [savings\_plans\_alerts](#module\_savings\_plans\_alerts) | ./modules/savings_plans | n/a |
+No modules.
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [aws_sns_topic.chatbot](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic) | resource |
-| [aws_sns_topic_policy.chatbot_topic](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/sns_topic_policy) | resource |
+No resources.
 
 ## Inputs
 

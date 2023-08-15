@@ -8,4 +8,3 @@ repos:
     - id: terraform_validate
     - id: terraform_docs
     - id: terraform_tfsec
-

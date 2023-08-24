@@ -10,7 +10,6 @@
   - [Configuration Guide](#configuration-guide)
     - [Setting Up AWS Chatbot in Slack](#setting-up-aws-chatbot-in-slack)
     - [Configuring Slack Channel to SNS Topic](#configuring-slack-channel-to-sns-topic)
-- [Conclusion](#conclusion)
 ## Overview
 
 The `aws-alerts-to-slack` Terraform module offers a seamless method to monitor critical AWS alerts and relay them directly to your Slack workspace. By encapsulating the complexities of AWS services and configurations, this module delivers a straightforward deployment process, allowing quick integration of comprehensive monitoring and alerting into your infrastructure.
@@ -35,19 +34,24 @@ The `aws-alerts-to-slack` Terraform module offers a seamless method to monitor c
 
 ## Implemented Alerts
 
-- **Reservations Utilization Alert:** Activates when Reserved Instance utilization drops below a certain threshold.
+Currently, the module supports the following alerts:
 
-- **Savings Plans Utilization Alert:** Notifies when Savings Plans utilization decreases below a specified threshold.
+- **Savings Plans Utilization Alert:** Notifies users when Savings Plans utilization falls below a specified threshold.
+  
+- **Budget Alerts:** Monitors forecasted and actual costs. Sends an alert if costs exceed a specific percentage of a set budget. By default, notifications are generated at 100%, 150%, and 200% of the budget for both forecasted and actual costs.
 
-- **Budget Alerts:** Observes forecasted or actual costs. An alert is sent if costs exceed a certain percentage of a set limit. The system auto-generates a budget with notifications at 100%, 150%, and 200% of the limit amount for both forecasted and actual costs.
+- **GuardDuty Findings:** Routes AWS GuardDuty findings directly to Slack.
 
-- **EventBridge Alerts:**
-  - **GuardDuty Findings:** Directs any AWS GuardDuty discoveries straight to Slack.
-  - **AWS Health Events:** Monitors AWS Health-related events.
+The following alerts are in the testing phase and should be used with caution:
 
-- **Cost Anomaly Detection:** Implements AWS Cost Explorer's Cost Anomaly Detection alerts.
+- **Reservations Utilization Alert:** Triggers when Reserved Instance utilization falls below a specified threshold.
 
-For further details on each alert, refer to the `/modules` directory.
+- **AWS Health Events:** Keeps track of AWS Health-related events.
+
+- **Cost Anomaly Detection:** Leverages AWS Cost Explorer's Cost Anomaly Detection for alerts.
+
+For more information on each alert type, please refer to the `/modules` directory.
+
 
 ## Configuration Guide
 
@@ -116,5 +120,3 @@ module "budget_alerts" {
 
 For additional usage examples, consult the /examples directory.
 
-# Conclusion
-Stay proactive and enhance your alerting system with the aws-alerts-to-slack Terraform module. By channeling AWS alerts directly into Slack, your team remains informed and ready to act, ensuring the resilience and observability of your AWS infrastructure.

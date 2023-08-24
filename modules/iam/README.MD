@@ -1,4 +1,5 @@
-# Optional automated Iam for Chatbot
+# Iam for Chatbot
+Automated creation of IAM resources for AWS Chatbot.
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

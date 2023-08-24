@@ -5,14 +5,13 @@ locals {
       "prod-alerts" = "PPOIUYTREWQ"
     }
   }
-  # Both SNS topic ARN and email addresses can be used as subscribers, but at least one of them is required
   budget_subscriber_email_addresses = [
     "prod_alerts@gmail.com",
   ]
   prod_sns_topic_arn = [aws_sns_topic.prod_chatbot.arn]
 }
 
-# Optional Automatic creation Chatbot IAM role
+# Creation of IAM resources for Chatbot
 module "chatbot_role" {
   source = "./modules/iam"
 }
@@ -24,7 +23,6 @@ module "chatbot_slack_workspace" {
 
   workspace_id = local.slack.workspace_id
 
-  # Here can be placed default_iam_role_arn for Chatbot instead of automatic creation
   default_iam_role_arn = module.chatbot_role.iam_role_arn
 
   # Mapping of topics to channels
@@ -68,10 +66,10 @@ module "budget_alerts" {
 module "eventbridge_alerts" {
   source = "./modules/eventbridge"
 
-  # create_guardduty_findings_rule will create eventbridge rule and send all GuardDuty findings to Slack
+  # It will create eventbridge rule and send all GuardDuty findings to Slack
   create_guardduty_findings_rule = true
 
-  # create_aws_health_rule will create eventbridge rule and send all AWS Health events to Slack
+  # Same for AWS Health events
   create_aws_health_rule = true
 
   sns_topic_arn = local.prod_sns_topic_arn[0]

@@ -1,5 +1,5 @@
 # Event brige alerts:
-GuardDuty and AWS health events, both are can be disabled.
+GuardDuty and AWS health events.
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

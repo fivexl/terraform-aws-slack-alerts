@@ -1,6 +1,6 @@
 # Savings plans utilization alert
 
-Like in budget alerts, required only 2 values:
+Required only 2 values:
 - `threshold` - percentage of utilization
 - `subscriber_sns_topic_arns` - sns topic for chatbot
 

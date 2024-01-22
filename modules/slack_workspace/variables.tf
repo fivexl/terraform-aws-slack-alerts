@@ -1,9 +1,3 @@
-variable "tags" {
-  description = "(Optional) A mapping of tags to assign to all resources."
-  type        = map(string)
-  default     = {}
-}
-
 variable "workspace_id" {
   description = "(Required) The id of the Slack workspace"
   type        = string

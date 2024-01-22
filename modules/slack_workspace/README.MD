@@ -7,15 +7,15 @@ This module gives you a better way to configure your Slack workspace with AWS Ch
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.3 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 4.64 |
-| <a name="requirement_awscc"></a> [awscc](#requirement\_awscc) | 0.58.0 |
+| <a name="requirement_awscc"></a> [awscc](#requirement\_awscc) | >= 0.57.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_awscc"></a> [awscc](#provider\_awscc) | 0.58.0 |
+| <a name="provider_awscc"></a> [awscc](#provider\_awscc) | 0.68.0 |
 
 ## Modules
 
@@ -25,7 +25,7 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [awscc_chatbot_slack_channel_configuration.this](https://registry.terraform.io/providers/hashicorp/awscc/0.58.0/docs/resources/chatbot_slack_channel_configuration) | resource |
+| [awscc_chatbot_slack_channel_configuration.this](https://registry.terraform.io/providers/hashicorp/awscc/latest/docs/resources/chatbot_slack_channel_configuration) | resource |
 
 ## Inputs
 
@@ -37,7 +37,6 @@ No modules.
 | <a name="input_default_logging_level"></a> [default\_logging\_level](#input\_default\_logging\_level) | Default logging level to apply to all channels | `string` | `"NONE"` | no |
 | <a name="input_default_sns_topic_arns"></a> [default\_sns\_topic\_arns](#input\_default\_sns\_topic\_arns) | Default SNS topic ARNs to apply to all channels | `list(string)` | `[]` | no |
 | <a name="input_default_user_role_required"></a> [default\_user\_role\_required](#input\_default\_user\_role\_required) | Default user role required to apply to all channels | `bool` | `false` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | (Optional) A mapping of tags to assign to all resources. | `map(string)` | `{}` | no |
 | <a name="input_workspace_id"></a> [workspace\_id](#input\_workspace\_id) | (Required) The id of the Slack workspace | `string` | n/a | yes |
 
 ## Outputs

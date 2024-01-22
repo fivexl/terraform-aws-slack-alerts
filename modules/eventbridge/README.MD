@@ -16,7 +16,7 @@ This alert creates two CloudWatch event rules that send notifications to an SNS 
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.64 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.33.0 |
 
 ## Modules
 

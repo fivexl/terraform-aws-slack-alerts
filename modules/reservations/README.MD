@@ -1,8 +1,10 @@
 # Reservations utilization alert
 
+This module creates a budget alert for Reserved Instance utilization. It will send notifications when utilization falls below a specified threshold.
+
 Required only 2 values:
 - `threshold` - percentage of utilization
-- `subscriber_sns_topic_arns` - sns topic for chatbot
+- `subscriber_sns_topic_arns` or `subscriber_email_addresses` 
 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

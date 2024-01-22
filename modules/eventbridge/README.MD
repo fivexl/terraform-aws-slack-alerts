@@ -1,6 +1,8 @@
 # Event brige alerts:
 GuardDuty and AWS health events.
 
+This alert creates two CloudWatch event rules that send notifications to an SNS topic when GuardDuty or AWS Health events are triggered.
+
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

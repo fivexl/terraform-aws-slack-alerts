@@ -1,5 +1,6 @@
 # Cost anomaly detection alert
 
+This module creates a cost anomaly detection alert with default values. You need to specify the `threshold` value, which is the dollar value that triggers a notification if the threshold is exceeded.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

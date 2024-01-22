@@ -1,5 +1,6 @@
 # Slack workspace configuration
 
+This module gives you a better way to configure your Slack workspace with AWS Chatbot. It allows you to configure multiple channels and SNS topics, as well as IAM roles and logging levels.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

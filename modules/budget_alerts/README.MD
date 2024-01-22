@@ -1,5 +1,7 @@
 # Standartized and simplified budget alert
 
+This module allows you to create a budget alert with a single line of code. It also allows you to specify the percentage of the budget threshold to notify. With default values, notifications will be sent at 100%, 150%, and 200% of the budget `limit_amount`.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 

@@ -1,6 +1,6 @@
 # Iam for Chatbot
-Automated creation of IAM resources for AWS Chatbot.
 
+Automated creation of IAM resources for AWS Chatbot.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements

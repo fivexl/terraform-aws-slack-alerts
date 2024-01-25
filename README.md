@@ -120,3 +120,6 @@ module "budget_alerts" {
 
 For additional usage examples, consult the /examples directory.
 
+## Weekly review link
+- [Review](https://github.com/fivexl/terraform-aws-account-baseline/compare/main@%7B7day%7D...main)
+- [Review branch-based review](https://github.com/fivexl/terraform-aws-account-baseline/compare/review...main)

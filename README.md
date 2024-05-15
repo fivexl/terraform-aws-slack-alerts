@@ -42,11 +42,11 @@ Currently, the module supports the following alerts:
 
 - **GuardDuty Findings:** Routes AWS GuardDuty findings directly to Slack.
 
+- **AWS Health Events:** Keeps track of AWS Health-related events.
+
 The following alerts are in the testing phase and should be used with caution:
 
 - **Reservations Utilization Alert:** Triggers when Reserved Instance utilization falls below a specified threshold.
-
-- **AWS Health Events:** Keeps track of AWS Health-related events.
 
 - **Cost Anomaly Detection:** Leverages AWS Cost Explorer's Cost Anomaly Detection for alerts.
 

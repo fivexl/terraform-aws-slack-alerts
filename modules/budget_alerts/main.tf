@@ -52,7 +52,7 @@ resource "aws_budgets_budget" "this" {
   }
 
   lifecycle {
-    ignore_changes = [ limit_amount ]
+    ignore_changes = [limit_amount]
   }
 }
 

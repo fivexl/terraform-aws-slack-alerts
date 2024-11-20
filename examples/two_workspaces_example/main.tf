@@ -24,13 +24,13 @@ locals {
 
 # Optional Automatic creation Chatbot IAM role
 module "chatbot_role" {
-  source = "./modules/iam"
+  source = "../../modules/iam"
 }
 
 
 # Configuration of Slack workspace and topics to channels mapping
 module "chatbot_budget_slack_workspace" {
-  source = "./modules/slack_workspace"
+  source = "../../modules/slack_workspace"
 
   workspace_id = local.budget.workspace_id
 
@@ -47,7 +47,7 @@ module "chatbot_budget_slack_workspace" {
 }
 
 module "chatbot_prod_slack_workspace" {
-  source = "./modules/slack_workspace"
+  source = "../../modules/slack_workspace"
 
   workspace_id = local.security.workspace_id
 
@@ -65,7 +65,7 @@ module "chatbot_prod_slack_workspace" {
 
 # It will automatically create budget, with notifications for 100%, 150% and 200% of limit amount for forecasted and actual costs
 module "budget_alerts" {
-  source = "./modules/budget_alerts"
+  source = "../../modules/budget_alerts"
 
   limit_amount = "10000"
 
@@ -74,7 +74,7 @@ module "budget_alerts" {
 }
 
 module "cost_anomaly_detection" {
-  source = "./modules/cost_anomaly_detection"
+  source = "../../modules/cost_anomaly_detection"
 
   # https://docs.aws.amazon.com/cost-management/latest/userguide/cad-alert-chime.html
 
@@ -90,7 +90,7 @@ module "cost_anomaly_detection" {
 }
 
 module "eventbridge_alerts" {
-  source = "./modules/eventbridge"
+  source = "../../modules/eventbridge"
 
   # create_guardduty_findings_rule will create eventbridge rule and send all GuardDuty findings to Slack
   create_guardduty_findings_rule = true

@@ -13,13 +13,13 @@ locals {
 
 # Creation of IAM resources for Chatbot
 module "chatbot_role" {
-  source = "./modules/iam"
+  source = "../../modules/iam"
 }
 
 
 # Configuration of Slack workspace and topics to channels mapping
 module "chatbot_slack_workspace" {
-  source = "./modules/slack_workspace"
+  source = "../../modules/slack_workspace"
 
   workspace_id = local.slack.workspace_id
 
@@ -36,7 +36,7 @@ module "chatbot_slack_workspace" {
 
 # Reservations utilization alert
 module "reservations_alerts" {
-  source = "./modules/reservations"
+  source = "../../modules/reservations"
 
   # Threshold, if utilization is less than 90% - alert will be triggered
   threshold                 = "90"
@@ -45,7 +45,7 @@ module "reservations_alerts" {
 
 # Savings plans utilization alert
 module "savings_plans_alerts" {
-  source = "./modules/savings_plans"
+  source = "../../modules/savings_plans"
 
   # Threshold, if utilization is less than 40% - alert will be triggered
   threshold                 = "40"
@@ -55,7 +55,7 @@ module "savings_plans_alerts" {
 
 # It will automatically create budget, with notifications for 100%, 150% and 200% of limit amount for forecasted and actual costs
 module "budget_alerts" {
-  source = "./modules/budget_alerts"
+  source = "../../modules/budget_alerts"
 
   limit_amount = "10000"
 
@@ -64,7 +64,7 @@ module "budget_alerts" {
 }
 
 module "eventbridge_alerts" {
-  source = "./modules/eventbridge"
+  source = "../../modules/eventbridge"
 
   # It will create eventbridge rule and send all GuardDuty findings to Slack
   create_guardduty_findings_rule = true
@@ -77,7 +77,7 @@ module "eventbridge_alerts" {
 
 
 module "cost_anomaly_detection" {
-  source = "./modules/cost_anomaly_detection"
+  source = "../../modules/cost_anomaly_detection"
 
   # https://docs.aws.amazon.com/cost-management/latest/userguide/cad-alert-chime.html
 

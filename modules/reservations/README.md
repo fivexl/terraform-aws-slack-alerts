@@ -19,7 +19,7 @@ Required only 2 values:
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.33.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.76.0 |
 
 ## Modules
 
@@ -37,7 +37,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_create"></a> [create](#input\_create) | (Optional) Controls if budget should be created. | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | (Optional) The name of a budget. Unique within accounts. | `string` | `"ri-utilization-budget-alerts"` | no |
-| <a name="input_services"></a> [services](#input\_services) | (Optional) List of services to send alerts for. Defaults to all services. | `list(string)` | <pre>[<br>  "Amazon Elasticsearch Service",<br>  "Amazon Relational Database Service",<br>  "Amazon Redshift",<br>  "Amazon Elastic Compute Cloud - Compute",<br>  "Amazon ElastiCache",<br>  "Amazon OpenSearch Service"<br>]</pre> | no |
+| <a name="input_services"></a> [services](#input\_services) | (Optional) List of services to send alerts for. Defaults to all services. | `list(string)` | <pre>[<br/>  "Amazon Elasticsearch Service",<br/>  "Amazon Relational Database Service",<br/>  "Amazon Redshift",<br/>  "Amazon Elastic Compute Cloud - Compute",<br/>  "Amazon ElastiCache",<br/>  "Amazon OpenSearch Service"<br/>]</pre> | no |
 | <a name="input_subscriber_email_addresses"></a> [subscriber\_email\_addresses](#input\_subscriber\_email\_addresses) | (Optional) E-Mail addresses to notify. Either this or subscriber\_sns\_topic\_arns is required. | `list(string)` | `[]` | no |
 | <a name="input_subscriber_sns_topic_arns"></a> [subscriber\_sns\_topic\_arns](#input\_subscriber\_sns\_topic\_arns) | (Optional) SNS topics to notify. Either this or subscriber\_email\_addresses is required. | `list(string)` | `[]` | no |
 | <a name="input_threshold"></a> [threshold](#input\_threshold) | (Optional) Threshold when the notification should be sent. | `number` | `90` | no |

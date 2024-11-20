@@ -28,6 +28,17 @@ resource "aws_budgets_budget" "this" {
   time_period_start = var.time_period_start
   time_unit         = var.time_unit
 
+  dynamic "auto_adjust_data" {
+    for_each = var.auto_adjust ? toset(["auto_adjust"]) : toset([])
+    content {
+      auto_adjust_type = "HISTORICAL"
+
+      historical_options {
+        budget_adjustment_period = var.budget_adjustment_period
+      }
+    }
+  }
+
   dynamic "notification" {
     for_each = merge(local.actual_notifications, local.forecasted_notifications)
     content {

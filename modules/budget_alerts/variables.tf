@@ -50,3 +50,15 @@ variable "notification_on_threshold_percentage" {
   default     = [100, 150, 200]
   description = "(Optional) The percentage of the budget threshold to notify. With default values, notifications will be sent at 100%, 150%, and 200% of the budget `limit_amount`."
 }
+
+variable "auto_adjust" {
+  type        = bool
+  default     = true
+  description = "Auto adjust budget based on historical values"
+}
+
+variable "budget_adjustment_period" {
+  type        = number
+  default     = 6
+  description = "Number of month to look back for historical values"
+}

@@ -50,5 +50,9 @@ resource "aws_budgets_budget" "this" {
       subscriber_sns_topic_arns  = notification.value.subscriber_sns_topic_arns
     }
   }
+
+  lifecycle {
+    ignore_changes = [ limit_amount ]
+  }
 }
 

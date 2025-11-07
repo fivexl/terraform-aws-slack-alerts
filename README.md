@@ -63,6 +63,7 @@ Before deploying this module, you must set up the Slack workspace. Follow the st
     > Note: If **Apps** isn't visible, click on **More**, then choose **Apps**.
 2. If AWS Chatbot isn't listed, click on **Browse Apps Directory**.
 3. Search for the AWS Chatbot app and click **Add** to integrate it into your workspace.
+>> For some reason, the "Add to Slack" button on the app page sometimes doesn’t work. In that case, you can skip adding the app to the workspace and go directly to the AWS Chatbot service configuration—it works as well.
 4. Navigate to the [AWS Chatbot console](https://console.aws.amazon.com/chatbot/).
 5. Under "Configure a chat client", select **Slack**, then **Configure client**.
 6. From the dropdown list, choose the Slack workspace you wish to use with AWS Chatbot.
